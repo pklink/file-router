@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pklink/file-router.png?branch=master)](https://travis-ci.org/pklink/file-router)
+
 # FileRouter
 
 A library for mapping files in a directory to routes like `hello/world`
