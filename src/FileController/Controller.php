@@ -2,60 +2,38 @@
 
 namespace FileController;
 
-class Controller
+interface Controller
 {
 
     /**
-     * @var string
-     */
-    protected $sourcePath;
-
-
-    /**
-     * @var string
-     */
-    protected $routingParam = 'r';
-
-
-    function __construct()
-    {
-
-    }
-
-
-    /**
      * @return string
      */
-    public function getRoutingParam()
-    {
-        return $this->routingParam;
-    }
+    public function getFileExtension();
+
+    /**
+     * @return \SplFileInfo
+     */
+    public function getSourcePath();
 
 
     /**
-     * @return string
+     * @param string $request
+     * @return void
      */
-    public function getSourcePath()
-    {
-        return $this->sourcePath;
-    }
+    public function handleRequest($request);
 
 
     /**
-     * @param string $routingParam
+     * @param string $extension
+     * @return void
      */
-    public function setRoutingParam($routingParam)
-    {
-        $this->routingParam = $routingParam;
-    }
+    public function setFileExtension($extension = 'php');
 
 
     /**
-     * @param string $sourcePath
+     * @param \SplFileInfo $sourcePath
+     * @return void
      */
-    public function setSourcePath($sourcePath)
-    {
-        $this->sourcePath = $sourcePath;
-    }
+    public function setSourcePath(\SplFileInfo $sourcePath);
 
 }
