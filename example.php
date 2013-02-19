@@ -9,24 +9,24 @@ require __DIR__ . '/vendor/autoload.php';
 $sourcePath = new SplFileInfo(__DIR__ . '/example/php');
 
 // create router
-$controller = new \FileController\Controller\Load($sourcePath);
+$router = new \FileRouter\Router\Load($sourcePath);
 
 // handle 'hello'-route
-$controller->handleRequest('hello');
+$router->handleRoute('hello');
 
 // handle 'hello/world'-route
-$controller->handleRequest('hello/world');
+$router->handleRoute('hello/world');
 
 // handle not existing file
 try {
-    $controller->handleRequest('not/existing/file');
+    $router->handleRoute('not/existing/file');
 } catch (InvalidArgumentException $e) {
     printf('<pre>%s</pre>', $e->getMessage());
 }
 
 // handle file outside of the source path
 try {
-    $controller->handleRequest('../../example');
+    $router->handleRoute('../../example');
 } catch (OutOfBoundsException $e) {
     printf('<pre>%s</pre>', $e->getMessage());
 }
@@ -38,17 +38,17 @@ try {
 $sourcePath = new SplFileInfo(__DIR__ . '/example/txt');
 
 // create router
-$controller = new \FileController\Controller\OutputTxt($sourcePath);
+$router = new \FileRouter\Router\OutputTxt($sourcePath);
 
 // handle 'hello'-route
-$controller->handleRequest('hello');
+$router->handleRoute('hello');
 
 // handle 'hello/world'-route
-$controller->handleRequest('hello/world');
+$router->handleRoute('hello/world');
 
 // handle not existing file
 try {
-    $controller->handleRequest('not/existing/file');
+    $router->handleRoute('not/existing/file');
 } catch (InvalidArgumentException $e) {
     printf('<pre>%s</pre>', $e->getMessage());
 }

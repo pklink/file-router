@@ -1,8 +1,8 @@
 <?php
 
-namespace FileController\Controller;
+namespace FileRouter\Router;
 
-abstract class AbstractImpl implements \FileController\Controller
+abstract class AbstractImpl implements \FileRouter\Router
 {
 
     /**
@@ -28,22 +28,22 @@ abstract class AbstractImpl implements \FileController\Controller
 
 
     /**
-     * @param $request
+     * @param $route
      * @return \SplFileInfo
      * @throws \OutOfBoundsException if requested file not in source path
      * @throws \InvalidArgumentException if $request not scalar
      * @throws \UnexpectedValueException if requested file is not exist
      */
-    protected function getFileByRequest($request)
+    protected function getFileByRoute($route)
     {
         // check if $request is scalar
-        if (!is_scalar($request))
+        if (!is_scalar($route))
         {
-            throw new \UnexpectedValueException('$request must be scalar');
+            throw new \UnexpectedValueException('$route must be scalar');
         }
 
         // create file
-        $file = new \SplFileInfo(sprintf('%s/%s.%s', $this->sourcePath->getRealPath(), $request, $this->fileExtension));
+        $file = new \SplFileInfo(sprintf('%s/%s.%s', $this->sourcePath->getRealPath(), $route, $this->fileExtension));
 
         // check file is exist
         if (!file_exists($file->getPathname()))

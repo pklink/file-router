@@ -1,6 +1,6 @@
 <?php
 
-namespace FileController\Controller;
+namespace FileRouter\Router;
 
 class OutputTxt extends AbstractImpl
 {
@@ -15,14 +15,13 @@ class OutputTxt extends AbstractImpl
 
 
     /**
-     * @param string $request
+     * @param string $route
      * @return void
      */
-    public function handleRequest($request)
+    public function handleRoute($route)
     {
-        $requestedFile = $this->getFileByRequest($request);
-
-        echo file_get_contents($requestedFile->getRealPath());
+        $routingFile = $this->getFileByRoute($route);
+        echo file_get_contents($routingFile->getRealPath());
     }
 
 }

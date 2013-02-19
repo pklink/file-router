@@ -1,8 +1,8 @@
 <?php
 
-namespace FileController;
+namespace FileRouter;
 
-interface Controller
+interface Router
 {
 
     /**
@@ -17,10 +17,10 @@ interface Controller
 
 
     /**
-     * @param string $request
+     * @param string $route
      * @return void
      */
-    public function handleRequest($request);
+    public function handleRoute($route);
 
 
     /**

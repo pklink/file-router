@@ -1,6 +1,6 @@
 <?php
 
-namespace FileController\Controller;
+namespace FileRouter\Router;
 
 class Load extends AbstractImpl
 {
@@ -15,12 +15,12 @@ class Load extends AbstractImpl
 
 
     /**
-     * @param string $request
+     * @param string $route
      * @return void
      */
-    public function handleRequest($request)
+    public function handleRoute($route)
     {
-        $requestedFile = $this->getFileByRequest($request);
+        $requestedFile = $this->getFileByRoute($route);
 
         include $requestedFile->getRealPath();
     }
