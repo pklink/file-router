@@ -1,7 +1,7 @@
 {
     "name":        "pklink/file-router",
-    "description": "Routing based on the filesystem",
-    "version":     "0.1-dev",
+    "description": "Library for mapping files in a directory to routes",
+    "version":     "0.1",
     "keywords":    ["routing", "file", "filesystem"],
     "homepage":    "https://github.com/pklink/file-router",
     "license":     "MIT",
@@ -9,7 +9,8 @@
         {
             "name":     "Pierre Klink",
             "email":    "dev@klinks.info",
-            "homepage": "http://www.klinks.info" }
+            "homepage": "http://www.klinks.info"
+        }
     ],
     "autoload": {
         "psr-0": {"FileRouter": "src/"}
