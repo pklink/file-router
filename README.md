@@ -87,13 +87,13 @@ And here is our `example.php`
 
 ```php
 // the source path for including files
-$sourcePath = new SplFileInfo(__DIR__ . '/includes');
+$sourcePath = new SplFileInfo(__DIR__ . '/docs');
 
 // create router
 $router = new \FileRouter\Router\OutputTxt($sourcePath);
 ```
 
-Now you can print/output files in the `includes`-directory
+Now you can print/output files in the `docs`-directory
 
 ```php
 $router->handleRoute('hello'); // print includes/hello.txt
