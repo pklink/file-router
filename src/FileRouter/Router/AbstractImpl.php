@@ -110,7 +110,7 @@ abstract class AbstractImpl implements \FileRouter\Router
         // path must be a directory and readable
         if (!$sourcePath->isDir() || !$sourcePath->isReadable())
         {
-            throw new \InvalidArgumentException(sprintf('%s must be a readable directory'));
+            throw new \InvalidArgumentException(sprintf('%s must be a readable directory', $sourcePath->getPathname()));
         }
 
         $this->sourcePath = $sourcePath;
