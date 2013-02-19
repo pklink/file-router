@@ -124,6 +124,21 @@ class CustomRouter extends \FileRouter\Router\AbstractImpl
 }	
 ```
 
-# License
+## Run Tests
+
+```bash
+php composer.phar install --dev
+php vendor/bin/phpunit tests/
+```
+
+or with code-coverage-report
+
+```bash
+php composer.phar install --dev
+php vendor/bin/phpunit --coverage-html output tests/
+```
+
+
+## License
 
 This package is licensed under the MIT License. See the LICENSE file for details.
