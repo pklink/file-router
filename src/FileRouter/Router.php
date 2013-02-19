@@ -2,6 +2,10 @@
 
 namespace FileRouter;
 
+/**
+ * @author Pierre Klink <dev@klinks.info>
+ * @license MIT See LICENSE file for more information
+ */
 interface Router
 {
 
