@@ -32,7 +32,7 @@ abstract class AbstractImpl implements \FileRouter\Router
 
 
     /**
-     * @param $route
+     * @param string $route
      * @return \SplFileInfo
      * @throws \OutOfBoundsException if requested file not in source path
      * @throws \InvalidArgumentException if $request not scalar
