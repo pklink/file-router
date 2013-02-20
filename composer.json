@@ -1,7 +1,7 @@
 {
     "name":        "pklink/file-router",
     "description": "Library for mapping files in a directory to routes",
-    "version":     "0.1-dev",
+    "version":     "0.1.2",
     "keywords":    ["routing", "file", "filesystem"],
     "homepage":    "https://github.com/pklink/file-router",
     "license":     "MIT",
