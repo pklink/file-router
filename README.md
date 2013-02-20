@@ -128,6 +128,8 @@ class CustomRouter extends \FileRouter\Router\AbstractImpl
 
 ## Run Tests
 
+You can use [PHPUnit] from the vendor-folder.
+
 ```bash
 php composer.phar install --dev
 php vendor/bin/phpunit tests/
@@ -140,7 +142,26 @@ php composer.phar install --dev
 php vendor/bin/phpunit --coverage-html output tests/
 ```
 
+## Create API Documentation
+
+You find the documentation in `<package-root>/docs`. If you like to create your own documentation you can use [ApiGen].
+
+```bash
+php composer.phar install --dev
+php vendor/bin/apigen.php -s src/ -d docs/
+```
+
 
 ## License
 
 This package is licensed under the MIT License. See the LICENSE file for details.
+
+## Credits
+* [Composer]
+* [PHPUnit]
+* [ApiGen]
+
+
+[ApiGen]: https://github.com/apigen/apigen
+[PHPUnit]: http://www.phpunit.de/
+[Composer]: http://getcomposer.org/
