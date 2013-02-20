@@ -10,17 +10,24 @@ interface Router
 {
 
     /**
+     * Get the setted file extension
+     *
      * @return string
      */
     public function getFileExtension();
 
+
     /**
+     * Get the setted source path.
+     *
      * @return \SplFileInfo
      */
     public function getSourcePath();
 
 
     /**
+     * Handle the given $route.
+     *
      * @param string $route
      * @return void
      */
@@ -28,6 +35,9 @@ interface Router
 
 
     /**
+     * Set the file extension.
+     * Only files with this extension are relevant for routing
+     *
      * @param string $extension
      * @return void
      */
@@ -35,6 +45,9 @@ interface Router
 
 
     /**
+     * Set the source path.
+     * Only files in this path are relevant for routing
+     *
      * @param \SplFileInfo $sourcePath
      * @return void
      */

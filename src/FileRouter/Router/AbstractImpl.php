@@ -10,19 +10,28 @@ abstract class AbstractImpl implements \FileRouter\Router
 {
 
     /**
+     * Allowed file extension of the routing files.
+     * Only files with this extension are relevant for routing
+     *
      * @var string
      */
     protected $fileExtension = 'php';
 
+
     /**
+     * Source path for routing.
+     * Only files in this path are relevant for routing.
+     *
      * @var \SplFileInfo
      */
     protected $sourcePath;
 
 
     /**
+     * Create instance and set source path and allowed file extension.
+     *
      * @param \SplFileInfo $sourcePath
-     * @param string $fileExtension
+     * @param string $fileExtension default is "php"
      */
     function __construct(\SplFileInfo $sourcePath, $fileExtension = 'php')
     {
@@ -32,6 +41,8 @@ abstract class AbstractImpl implements \FileRouter\Router
 
 
     /**
+     * Get the mapped file for the given route $route.
+     *
      * @param string $route
      * @return \SplFileInfo
      * @throws \OutOfBoundsException if requested file not in source path
@@ -67,6 +78,9 @@ abstract class AbstractImpl implements \FileRouter\Router
 
 
     /**
+     * Get the allowed file extension.
+     *
+     * @see self::$fileExtension
      * @return string
      */
     public function getFileExtension()
@@ -76,6 +90,21 @@ abstract class AbstractImpl implements \FileRouter\Router
 
 
     /**
+     * Get the source path
+     *
+     * @see self::$sourcePath
+     * @return \SplFileInfo
+     */
+    public function getSourcePath()
+    {
+        return $this->sourcePath;
+    }
+
+
+    /**
+     * Set the allowed file extension
+     *
+     * @see self::$fileExtension
      * @param string $extension
      * @return void
      * @throws \UnexpectedValueException
@@ -93,15 +122,9 @@ abstract class AbstractImpl implements \FileRouter\Router
 
 
     /**
-     * @return \SplFileInfo
-     */
-    public function getSourcePath()
-    {
-        return $this->sourcePath;
-    }
-
-
-    /**
+     * Set the source path
+     *
+     * @see self::$sourcePath
      * @param \SplFileInfo $sourcePath
      * @throws \InvalidArgumentException
      */
