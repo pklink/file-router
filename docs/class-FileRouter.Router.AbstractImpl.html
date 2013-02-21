@@ -4,10 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class FileRouter\Router\AbstractImpl | FileRouter API</title>
+	<title>Class FileRouter\Router\AbstractImpl</title>
 
 	<script type="text/javascript" src="resources/combined.js?2280910710"></script>
-	<script type="text/javascript" src="elementlist.js?2022705417"></script>
+	<script type="text/javascript" src="elementlist.js?3586947050"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -23,6 +23,15 @@
 			<ul>
 				<li class="active"><a href="namespace-FileRouter.html">FileRouter<span></span></a>
 						<ul>
+				<li><a href="namespace-FileRouter.Exception.html">Exception<span></span></a>
+						<ul>
+				<li><a href="namespace-FileRouter.Exception.Directory.html">Directory</a>
+						</li>
+				<li><a href="namespace-FileRouter.Exception.File.html">File</a>
+						</li>
+				<li><a href="namespace-FileRouter.Exception.Route.html">Route</a>
+						</li>
+							</ul></li>
 				<li class="active"><a href="namespace-FileRouter.Router.html">Router</a>
 						</li>
 							</ul></li>
@@ -119,7 +128,7 @@
 				<b>Author:</b>
 				Pierre Klink &lt;<a
 href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-FileRouter.Router.AbstractImpl.html#5-142" title="Go to source code">FileRouter/Router/AbstractImpl.php</a><br />
+		<b>Located at</b> <a href="source-class-FileRouter.Router.AbstractImpl.html#10-154" title="Go to source code">FileRouter/Router/AbstractImpl.php</a><br />
 	</div>
 
 
@@ -137,7 +146,7 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#30-40" title="Go to source code">__construct</a>( <span><code><a href="class-SplFileInfo.html">SplFileInfo</a></code> <var>$sourcePath</var></span>, <span>string <var>$fileExtension</var> = <span class="php-quote">'php'</span></span> )</code>
+		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#35-45" title="Go to source code">__construct</a>( <span><code><a href="class-SplFileInfo.html">SplFileInfo</a></code> <var>$sourcePath</var></span>, <span>string <var>$fileExtension</var> = <span class="php-quote">'php'</span></span> )</code>
 
 		<div class="description short">
 			
@@ -177,7 +186,7 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getFileByRoute">#</a>
-		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#43-77" title="Go to source code">getFileByRoute</a>( <span>string <var>$route</var></span> )</code>
+		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#48-82" title="Go to source code">getFileByRoute</a>( <span>string <var>$route</var></span> )</code>
 
 		<div class="description short">
 			
@@ -204,9 +213,9 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><code><a href="class-OutOfBoundsException.html">OutOfBoundsException</a></code></code><br>if requested file not in source path<br />
-					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br>if $request not scalar<br />
-					<code><code><a href="class-UnexpectedValueException.html">UnexpectedValueException</a></code></code><br>if requested file is not exist<br />
+					<code><code><a href="class-FileRouter.Exception.File.IsNotInSourcePath.html">FileRouter\Exception\File\IsNotInSourcePath</a></code></code><br />
+					<code><code><a href="class-FileRouter.Exception.Route.DoesNotExist.html">FileRouter\Exception\Route\DoesNotExist</a></code></code><br />
+					<code><code><a href="class-UnexpectedValueException.html">UnexpectedValueException</a></code></code><br />
 				</div>
 
 
@@ -225,7 +234,7 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getFileExtension">#</a>
-		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#80-89" title="Go to source code">getFileExtension</a>( )</code>
+		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#85-94" title="Go to source code">getFileExtension</a>( )</code>
 
 		<div class="description short">
 			
@@ -268,7 +277,7 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getSourcePath">#</a>
-		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#92-101" title="Go to source code">getSourcePath</a>( )</code>
+		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#97-106" title="Go to source code">getSourcePath</a>( )</code>
 
 		<div class="description short">
 			
@@ -311,7 +320,7 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setFileExtension">#</a>
-		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#104-121" title="Go to source code">setFileExtension</a>( <span>string <var>$extension</var> = <span class="php-quote">'php'</span></span> )</code>
+		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#109-126" title="Go to source code">setFileExtension</a>( <span>string <var>$extension</var> = <span class="php-quote">'php'</span></span> )</code>
 
 		<div class="description short">
 			
@@ -359,7 +368,7 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSourcePath">#</a>
-		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#124-140" title="Go to source code">setSourcePath</a>( <span><code><a href="class-SplFileInfo.html">SplFileInfo</a></code> <var>$sourcePath</var></span> )</code>
+		<code><a href="source-class-FileRouter.Router.AbstractImpl.html#129-152" title="Go to source code">setSourcePath</a>( <span><code><a href="class-SplFileInfo.html">SplFileInfo</a></code> <var>$sourcePath</var></span> )</code>
 
 		<div class="description short">
 			
@@ -382,7 +391,8 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code></code><br />
+					<code><code><a href="class-FileRouter.Exception.Directory.DoesNotExist.html">FileRouter\Exception\Directory\DoesNotExist</a></code></code><br />
+					<code><code><a href="class-FileRouter.Exception.Directory.IsNotReadable.html">FileRouter\Exception\Directory\IsNotReadable</a></code></code><br />
 				</div>
 
 				<h4>See</h4>
@@ -426,7 +436,7 @@ href="mailto:dev&#64;klinks.info">dev&#64;<!---->klinks.info</a>&gt;<br />
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-FileRouter.Router.AbstractImpl.html#12-18" title="Go to source code"><var>$fileExtension</var></a>
+				<a href="source-class-FileRouter.Router.AbstractImpl.html#17-23" title="Go to source code"><var>$fileExtension</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">'php'</span></code></td>
 		<td class="description"><div>
@@ -455,7 +465,7 @@ are relevant for routing</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-FileRouter.Router.AbstractImpl.html#21-27" title="Go to source code"><var>$sourcePath</var></a>
+				<a href="source-class-FileRouter.Router.AbstractImpl.html#26-32" title="Go to source code"><var>$sourcePath</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -487,7 +497,7 @@ routing.</p>
 </div>
 
 	<div id="footer">
-		FileRouter API API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>
