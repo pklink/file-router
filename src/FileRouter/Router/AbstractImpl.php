@@ -4,7 +4,6 @@ namespace FileRouter\Router;
 
 use FileRouter\Exception\Directory;
 use FileRouter\Exception\File;
-use FileRouter\Exception\Path;
 use FileRouter\Exception\Route;
 
 /**
