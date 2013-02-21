@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/pklink/file-router.png?branch=master)](https://travis-ci.org/pklink/file-router)
 
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=pierre111&url=https://github.com/pklink/file-router.git&title=FileRouter&language=&tags=github&category=software)
+
 # FileRouter
 
 A library for mapping files in a directory to routes like `hello/world`
