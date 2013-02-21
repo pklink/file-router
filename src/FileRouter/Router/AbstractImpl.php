@@ -2,6 +2,11 @@
 
 namespace FileRouter\Router;
 
+use FileRouter\Exception\Directory;
+use FileRouter\Exception\File;
+use FileRouter\Exception\Path;
+use FileRouter\Exception\Route;
+
 /**
  * @author Pierre Klink <dev@klinks.info>
  * @license MIT See LICENSE file for more information
@@ -45,9 +50,9 @@ abstract class AbstractImpl implements \FileRouter\Router
      *
      * @param string $route
      * @return \SplFileInfo
-     * @throws \OutOfBoundsException if requested file not in source path
-     * @throws \InvalidArgumentException if $request not scalar
-     * @throws \UnexpectedValueException if requested file is not exist
+     * @throws \FileRouter\Exception\File\IsNotInSourcePath
+     * @throws \FileRouter\Exception\Route\DoesNotExist
+     * @throws \UnexpectedValueException
      */
     protected function getFileByRoute($route)
     {
@@ -60,17 +65,17 @@ abstract class AbstractImpl implements \FileRouter\Router
         // create file
         $file = new \SplFileInfo(sprintf('%s/%s.%s', $this->sourcePath->getRealPath(), $route, $this->fileExtension));
 
-        // check file is exist
+        // check file/route is exist
         if (!file_exists($file->getPathname()))
         {
-            throw new \InvalidArgumentException(sprintf('file "%s" does not exist', $file->getPathname()));
+            throw new Route\DoesNotExist($route);
         }
 
         // check if path of file in the sourcepath
         $sourcePathPartOfFile = substr($file->getRealPath(), 0, strlen($this->sourcePath->getRealPath()));
         if ($sourcePathPartOfFile != $this->sourcePath->getRealPath())
         {
-            throw new \OutOfBoundsException(sprintf('requested file "%s" is not in the source path "%s', $file->getPathname(), $this->sourcePath->getRealPath()));
+            throw new File\IsNotInSourcePath(sprintf('File "%s" is not in the source path "%s', $file->getPathname(), $this->sourcePath->getRealPath()));
         }
 
         return $file;
@@ -126,14 +131,21 @@ abstract class AbstractImpl implements \FileRouter\Router
      *
      * @see self::$sourcePath
      * @param \SplFileInfo $sourcePath
-     * @throws \InvalidArgumentException
+     * @throws \FileRouter\Exception\Directory\DoesNotExist
+     * @throws \FileRouter\Exception\Directory\IsNotReadable
      */
     public function setSourcePath(\SplFileInfo $sourcePath)
     {
-        // path must be a directory and readable
-        if (!$sourcePath->isDir() || !$sourcePath->isReadable())
+        // check if path is a directory
+        if (!$sourcePath->isDir())
         {
-            throw new \InvalidArgumentException(sprintf('%s must be a readable directory', $sourcePath->getPathname()));
+            throw new Directory\DoesNotExist($sourcePath->getPathname());
+        }
+
+        // check if path readable
+        if (!$sourcePath->isReadable())
+        {
+            throw new Directory\IsNotReadable($this->sourcePath->getPathname());
         }
 
         $this->sourcePath = $sourcePath;

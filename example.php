@@ -17,17 +17,17 @@ $router->handleRoute('hello');
 // handle 'hello/world'-route
 $router->handleRoute('hello/world');
 
-// handle not existing file
+// handle not existing file/route
 try {
     $router->handleRoute('not/existing/file');
-} catch (InvalidArgumentException $e) {
+} catch (\FileRouter\Exception\Route\DoesNotExist $e) {
     printf('<pre>%s</pre>', $e->getMessage());
 }
 
 // handle file outside of the source path
 try {
     $router->handleRoute('../../example');
-} catch (OutOfBoundsException $e) {
+} catch (\FileRouter\Exception\File\IsNotInSourcePath $e) {
     printf('<pre>%s</pre>', $e->getMessage());
 }
 
@@ -46,9 +46,9 @@ $router->handleRoute('hello');
 // handle 'hello/world'-route
 $router->handleRoute('hello/world');
 
-// handle not existing file
+// handle not existing file/route
 try {
     $router->handleRoute('not/existing/file');
-} catch (InvalidArgumentException $e) {
+} catch (\FileRouter\Exception\Route\DoesNotExist $e) {
     printf('<pre>%s</pre>', $e->getMessage());
 }
