@@ -4,7 +4,6 @@ namespace FileRouter\Router;
 
 use FileRouter\Exception\Directory;
 use FileRouter\Exception\Path;
-use FileRouter\Exception\File;
 use FileRouter\Exception\Route;
 
 class LoadTest extends \PHPUnit_Framework_TestCase
@@ -120,7 +119,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         try {
             $router->handleRoute('../../example');
             $this->assertTrue(false);
-        } catch (File\IsNotInSourcePath $e) {
+        } catch (Route\IsNotInSourcePath $e) {
             $this->assertTrue(true);
         }
 

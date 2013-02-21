@@ -3,7 +3,6 @@
 namespace FileRouter\Router;
 
 use FileRouter\Exception\Directory;
-use FileRouter\Exception\File;
 use FileRouter\Exception\Route;
 
 /**
@@ -49,7 +48,7 @@ abstract class AbstractImpl implements \FileRouter\Router
      *
      * @param string $route
      * @return \SplFileInfo
-     * @throws \FileRouter\Exception\File\IsNotInSourcePath
+     * @throws \FileRouter\Exception\Route\IsNotInSourcePath
      * @throws \FileRouter\Exception\Route\DoesNotExist
      * @throws \UnexpectedValueException
      */
@@ -74,7 +73,7 @@ abstract class AbstractImpl implements \FileRouter\Router
         $sourcePathPartOfFile = substr($file->getRealPath(), 0, strlen($this->sourcePath->getRealPath()));
         if ($sourcePathPartOfFile != $this->sourcePath->getRealPath())
         {
-            throw new File\IsNotInSourcePath(sprintf('File "%s" is not in the source path "%s', $file->getPathname(), $this->sourcePath->getRealPath()));
+            throw new Route\IsNotInSourcePath(sprintf('File "%s" is not in the source path "%s', $file->getPathname(), $this->sourcePath->getRealPath()));
         }
 
         return $file;

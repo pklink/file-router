@@ -27,7 +27,7 @@ try {
 // handle file outside of the source path
 try {
     $router->handleRoute('../../example');
-} catch (\FileRouter\Exception\File\IsNotInSourcePath $e) {
+} catch (\FileRouter\Exception\Route\IsNotInSourcePath $e) {
     printf('<pre>%s</pre>', $e->getMessage());
 }
 
