@@ -1,7 +1,5 @@
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=pierre111&url=https://github.com/pklink/file-router.git&title=FileRouter&language=&tags=github&category=software)
 
-[![Build Status](https://travis-ci.org/pklink/file-router.png?branch=master)](https://travis-ci.org/pklink/file-router)
-
 
 # FileRouter
 
@@ -145,6 +143,10 @@ php composer.phar install --dev
 php vendor/bin/phpunit --coverage-html output tests/
 ```
 
+[![Build Status](https://travis-ci.org/pklink/file-router.png?branch=master)](https://travis-ci.org/pklink/file-router)
+
+[![Build Status](https://drone.io/github.com/pklink/file-router/status.png)](https://drone.io/github.com/pklink/file-router/latest)
+
 ## Create API Documentation
 
 You find the documentation in `<package-root>/docs`. If you like to create your own documentation you can use [ApiGen].
@@ -163,6 +165,7 @@ This package is licensed under the MIT License. See the LICENSE file for details
 * [Composer]
 * [PHPUnit]
 * [ApiGen]
+
 
 
 [ApiGen]: https://github.com/apigen/apigen
