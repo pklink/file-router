@@ -57,7 +57,7 @@ abstract class AbstractImpl implements \FileRouter\Router
         // check if $request is scalar
         if (!is_scalar($route))
         {
-            throw new \UnexpectedValueException('$route must be scalar');
+            throw new \UnexpectedValueException('$route has to be scalar');
         }
 
         // create file
@@ -117,7 +117,7 @@ abstract class AbstractImpl implements \FileRouter\Router
         // check extension is scalar
         if (!is_scalar($extension))
         {
-            throw new \UnexpectedValueException('$extension must be scalar');
+            throw new \UnexpectedValueException('$extension has to be scalar');
         }
 
         $this->fileExtension = $extension;
