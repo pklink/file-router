@@ -151,8 +151,8 @@ php vendor/bin/phpunit --coverage-html output tests/
 You find the documentation in `<package-root>/docs`. If you like to create your own documentation you can use [ApiGen].
 
 ```bash
-php composer.phar install --dev
-php vendor/bin/apigen.php -s src/ -d docs/
+php composer.phar global require apigen/apigen:dev-master
+php ~/.composer/vendor/bin/apigen.php -s src/ -d docs/
 ```
 
 
