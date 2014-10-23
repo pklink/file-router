@@ -3,6 +3,8 @@
 
 # FileRouter
 
+[![Build Status](https://travis-ci.org/pklink/file-router.png?branch=master)](https://travis-ci.org/pklink/file-router)
+
 A library for mapping files in a directory to routes like `hello/world`
 
 
@@ -143,9 +145,6 @@ php composer.phar install --dev
 php vendor/bin/phpunit --coverage-html output tests/
 ```
 
-[![Build Status](https://drone.io/github.com/pklink/file-router/status.png)](https://drone.io/github.com/pklink/file-router/latest)
-[![Build Status](https://travis-ci.org/pklink/file-router.png?branch=master)](https://travis-ci.org/pklink/file-router)
-
 ## Create API Documentation
 
 You find the documentation in `<package-root>/docs`. If you like to create your own documentation you can use [ApiGen].
@@ -159,14 +158,3 @@ php ~/.composer/vendor/bin/apigen.php -s src/ -d docs/
 ## License
 
 This package is licensed under the MIT License. See the LICENSE file for details.
-
-## Credits
-* [Composer]
-* [PHPUnit]
-* [ApiGen]
-
-
-
-[ApiGen]: https://github.com/apigen/apigen
-[PHPUnit]: http://www.phpunit.de/
-[Composer]: http://getcomposer.org/
