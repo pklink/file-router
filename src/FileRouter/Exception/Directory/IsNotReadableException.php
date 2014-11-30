@@ -4,7 +4,7 @@ namespace FileRouter\Exception\Directory;
 
 use FileRouter\Exception;
 
-class DoesNotExist extends Exception
+class IsNotReadableException extends Exception
 {
 
 }

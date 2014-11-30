@@ -2,7 +2,8 @@
 
 namespace FileRouter\Router;
 
-use FileRouter\Exception\Route;
+use FileRouter\Exception\Route\DoesNotExistException;
+use FileRouter\Exception\RouteException;
 
 class OutputTxtTest extends \PHPUnit_Framework_TestCase
 {
@@ -53,7 +54,7 @@ class OutputTxtTest extends \PHPUnit_Framework_TestCase
         try {
             $router->handleRoute('blblblbl');
             $this->assertTrue(false);
-        } catch (Route\DoesNotExist $e) {
+        } catch (DoesNotExistException $e) {
             $this->assertTrue(true);
         }
 

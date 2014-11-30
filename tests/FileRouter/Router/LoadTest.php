@@ -4,7 +4,9 @@ namespace FileRouter\Router;
 
 use FileRouter\Exception\Directory;
 use FileRouter\Exception\Path;
-use FileRouter\Exception\Route;
+use FileRouter\Exception\Route\DoesNotExistException;
+use FileRouter\Exception\Route\IsNotInSourcePathException;
+use FileRouter\Exception\RouteException;
 
 class LoadTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,7 +47,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         try {
             $router->setSourcePath($sourcePath);
             $this->assertTrue(false);
-        } catch (Directory\DoesNotExist $e) {
+        } catch (Directory\DoesNotExistException $e) {
             $this->assertTrue(true);
         }
 
@@ -54,7 +56,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         try {
             $router->setSourcePath($sourcePath);
             $this->assertTrue(false);
-        } catch (Directory\DoesNotExist $e) {
+        } catch (Directory\DoesNotExistException $e) {
             $this->assertTrue(true);
         }
     }
@@ -111,7 +113,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         try {
             $router->handleRoute('blblblbl');
             $this->assertTrue(false);
-        } catch (Route\DoesNotExist $e) {
+        } catch (DoesNotExistException $e) {
             $this->assertTrue(true);
         }
 
@@ -119,7 +121,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         try {
             $router->handleRoute('../../FileRouter/RouterTest');
             $this->assertTrue(false);
-        } catch (Route\IsNotInSourcePath $e) {
+        } catch (IsNotInSourcePathException $e) {
             $this->assertTrue(true);
         }
 

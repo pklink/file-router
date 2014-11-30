@@ -3,7 +3,8 @@
 namespace FileRouter\Router;
 
 use FileRouter\Exception\Directory;
-use FileRouter\Exception\Route;
+use FileRouter\Exception\Route\DoesNotExistException;
+use FileRouter\Exception\Route\IsNotInSourcePathException;
 use FileRouter\Router;
 
 /**
@@ -46,8 +47,8 @@ abstract class AbstractImpl implements Router
      *
      * @param string $route
      * @return \SplFileInfo
-     * @throws \FileRouter\Exception\Route\IsNotInSourcePath
-     * @throws \FileRouter\Exception\Route\DoesNotExist
+     * @throws \FileRouter\Exception\Route\IsNotInSourcePathException
+     * @throws \FileRouter\Exception\Route\DoesNotExistException
      * @throws \UnexpectedValueException
      */
     protected function getFileByRoute($route)
@@ -62,7 +63,7 @@ abstract class AbstractImpl implements Router
 
         // check file/route is exist
         if (!file_exists($file->getPathname())) {
-            throw new Route\DoesNotExist($route);
+            throw new DoesNotExistException($route);
         }
 
         // check if path of file in the sourcepath
@@ -71,7 +72,7 @@ abstract class AbstractImpl implements Router
             $pathname = $file->getPathname();
             $realpath = $this->sourcePath->getRealPath();
             $message = sprintf('File "%s" is not in the source path "%s', $pathname, $realpath);
-            throw new Route\IsNotInSourcePath($message);
+            throw new IsNotInSourcePathException($message);
         }
 
         return $file;
@@ -122,19 +123,19 @@ abstract class AbstractImpl implements Router
      *
      * @see self::$sourcePath
      * @param \SplFileInfo $sourcePath
-     * @throws \FileRouter\Exception\Directory\DoesNotExist
-     * @throws \FileRouter\Exception\Directory\IsNotReadable
+     * @throws \FileRouter\Exception\Directory\DoesNotExistException
+     * @throws \FileRouter\Exception\Directory\IsNotReadableException
      */
     public function setSourcePath(\SplFileInfo $sourcePath)
     {
         // check if path is a directory
         if (!$sourcePath->isDir()) {
-            throw new Directory\DoesNotExist($sourcePath->getPathname());
+            throw new Directory\DoesNotExistException($sourcePath->getPathname());
         }
 
         // check if path readable
         if (!$sourcePath->isReadable()) {
-            throw new Directory\IsNotReadable($this->sourcePath->getPathname());
+            throw new Directory\IsNotReadableException($this->sourcePath->getPathname());
         }
 
         $this->sourcePath = $sourcePath;
