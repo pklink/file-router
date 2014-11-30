@@ -21,7 +21,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->sourcePath = new \SplFileInfo(__DIR__. '/../../../example/php');
+        $this->sourcePath = new \SplFileInfo(__DIR__. '/../../example/php');
         $this->router = new Load($this->sourcePath);
     }
 
@@ -117,7 +117,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
 
         // handle file outside of the source path
         try {
-            $router->handleRoute('../../example');
+            $router->handleRoute('../../FileRouter/RouterTest');
             $this->assertTrue(false);
         } catch (Route\IsNotInSourcePath $e) {
             $this->assertTrue(true);
