@@ -16,14 +16,12 @@ interface Router
      */
     public function getFileExtension();
 
-
     /**
      * Get the setted source path.
      *
      * @return \SplFileInfo
      */
     public function getSourcePath();
-
 
     /**
      * Handle the given $route.
@@ -32,7 +30,6 @@ interface Router
      * @return void
      */
     public function handleRoute($route);
-
 
     /**
      * Set the file extension.
@@ -43,7 +40,6 @@ interface Router
      */
     public function setFileExtension($extension = 'php');
 
-
     /**
      * Set the source path.
      * Only files in this path are relevant for routing
@@ -52,5 +48,4 @@ interface Router
      * @return void
      */
     public function setSourcePath(\SplFileInfo $sourcePath);
-
 }

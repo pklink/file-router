@@ -4,12 +4,13 @@ namespace FileRouter\Router;
 
 use FileRouter\Exception\Directory;
 use FileRouter\Exception\Route;
+use FileRouter\Router;
 
 /**
  * @author Pierre Klink <dev@klinks.info>
  * @license MIT See LICENSE file for more information
  */
-abstract class AbstractImpl implements \FileRouter\Router
+abstract class AbstractImpl implements Router
 {
 
     /**
@@ -20,7 +21,6 @@ abstract class AbstractImpl implements \FileRouter\Router
      */
     protected $fileExtension = 'php';
 
-
     /**
      * Source path for routing.
      * Only files in this path are relevant for routing.
@@ -29,19 +29,17 @@ abstract class AbstractImpl implements \FileRouter\Router
      */
     protected $sourcePath;
 
-
     /**
      * Create instance and set source path and allowed file extension.
      *
      * @param \SplFileInfo $sourcePath
      * @param string $fileExtension default is "php"
      */
-    function __construct(\SplFileInfo $sourcePath, $fileExtension = 'php')
+    public function __construct(\SplFileInfo $sourcePath, $fileExtension = 'php')
     {
         $this->setSourcePath($sourcePath);
         $this->setFileExtension($fileExtension);
     }
-
 
     /**
      * Get the mapped file for the given route $route.
@@ -55,8 +53,7 @@ abstract class AbstractImpl implements \FileRouter\Router
     protected function getFileByRoute($route)
     {
         // check if $request is scalar
-        if (!is_scalar($route))
-        {
+        if (!is_scalar($route)) {
             throw new \UnexpectedValueException('$route has to be scalar');
         }
 
@@ -64,21 +61,21 @@ abstract class AbstractImpl implements \FileRouter\Router
         $file = new \SplFileInfo(sprintf('%s/%s.%s', $this->sourcePath->getRealPath(), $route, $this->fileExtension));
 
         // check file/route is exist
-        if (!file_exists($file->getPathname()))
-        {
+        if (!file_exists($file->getPathname())) {
             throw new Route\DoesNotExist($route);
         }
 
         // check if path of file in the sourcepath
         $sourcePathPartOfFile = substr($file->getRealPath(), 0, strlen($this->sourcePath->getRealPath()));
-        if ($sourcePathPartOfFile != $this->sourcePath->getRealPath())
-        {
-            throw new Route\IsNotInSourcePath(sprintf('File "%s" is not in the source path "%s', $file->getPathname(), $this->sourcePath->getRealPath()));
+        if ($sourcePathPartOfFile != $this->sourcePath->getRealPath()) {
+            $pathname = $file->getPathname();
+            $realpath = $this->sourcePath->getRealPath();
+            $message = sprintf('File "%s" is not in the source path "%s', $pathname, $realpath);
+            throw new Route\IsNotInSourcePath($message);
         }
 
         return $file;
     }
-
 
     /**
      * Get the allowed file extension.
@@ -91,7 +88,6 @@ abstract class AbstractImpl implements \FileRouter\Router
         return $this->fileExtension;
     }
 
-
     /**
      * Get the source path
      *
@@ -102,7 +98,6 @@ abstract class AbstractImpl implements \FileRouter\Router
     {
         return $this->sourcePath;
     }
-
 
     /**
      * Set the allowed file extension
@@ -115,14 +110,12 @@ abstract class AbstractImpl implements \FileRouter\Router
     public function setFileExtension($extension = 'php')
     {
         // check extension is scalar
-        if (!is_scalar($extension))
-        {
+        if (!is_scalar($extension)) {
             throw new \UnexpectedValueException('$extension has to be scalar');
         }
 
         $this->fileExtension = $extension;
     }
-
 
     /**
      * Set the source path
@@ -135,18 +128,15 @@ abstract class AbstractImpl implements \FileRouter\Router
     public function setSourcePath(\SplFileInfo $sourcePath)
     {
         // check if path is a directory
-        if (!$sourcePath->isDir())
-        {
+        if (!$sourcePath->isDir()) {
             throw new Directory\DoesNotExist($sourcePath->getPathname());
         }
 
         // check if path readable
-        if (!$sourcePath->isReadable())
-        {
+        if (!$sourcePath->isReadable()) {
             throw new Directory\IsNotReadable($this->sourcePath->getPathname());
         }
 
         $this->sourcePath = $sourcePath;
     }
-
 }

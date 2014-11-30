@@ -2,7 +2,9 @@
 
 namespace FileRouter\Exception\Directory;
 
-class DoesNotExist extends \FileRouter\Exception
+use FileRouter\Exception;
+
+class DoesNotExist extends Exception
 {
 
 }

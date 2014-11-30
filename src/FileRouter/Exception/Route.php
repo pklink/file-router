@@ -2,7 +2,9 @@
 
 namespace FileRouter\Exception;
 
-class Route extends \FileRouter\Exception
+use FileRouter\Exception;
+
+class Route extends Exception
 {
 
 }

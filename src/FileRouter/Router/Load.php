@@ -16,11 +16,10 @@ class Load extends AbstractImpl
      *
      * @param \SplFileInfo $sourcePath
      */
-    function __construct(\SplFileInfo $sourcePath)
+    public function __construct(\SplFileInfo $sourcePath)
     {
         parent::__construct($sourcePath, 'php');
     }
-
 
     /**
      * Handle the route $route
@@ -31,7 +30,7 @@ class Load extends AbstractImpl
     public function handleRoute($route)
     {
         $requestedFile = $this->getFileByRoute($route);
+        /** @noinspection PhpIncludeInspection */
         include $requestedFile->getRealPath();
     }
-
 }

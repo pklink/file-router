@@ -16,11 +16,10 @@ class OutputTxt extends AbstractImpl
      *
      * @param \SplFileInfo $sourcePath
      */
-    function __construct(\SplFileInfo $sourcePath)
+    public function __construct(\SplFileInfo $sourcePath)
     {
         parent::__construct($sourcePath, 'txt');
     }
-
 
     /**
      * Handle the given route $route
@@ -33,5 +32,4 @@ class OutputTxt extends AbstractImpl
         $routingFile = $this->getFileByRoute($route);
         echo file_get_contents($routingFile->getRealPath());
     }
-
 }

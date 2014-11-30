@@ -2,7 +2,9 @@
 
 namespace FileRouter\Exception\Directory;
 
-class IsNotReadable extends \FileRouter\Exception
+use FileRouter\Exception;
+
+class IsNotReadable extends Exception
 {
 
 }
