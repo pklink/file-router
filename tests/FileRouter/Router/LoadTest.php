@@ -3,10 +3,8 @@
 namespace FileRouter\Router;
 
 use FileRouter\Exception\Directory;
-use FileRouter\Exception\Path;
 use FileRouter\Exception\Route\DoesNotExistException;
 use FileRouter\Exception\Route\IsNotInSourcePathException;
-use FileRouter\Exception\RouteException;
 
 class LoadTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,13 +19,19 @@ class LoadTest extends \PHPUnit_Framework_TestCase
      */
     protected $sourcePath;
 
+    /**
+     * @return void
+     */
     public function setUp()
     {
-        $this->sourcePath = new \SplFileInfo(__DIR__. '/../../example/php');
+        $this->sourcePath = new \SplFileInfo(__DIR__ . '/../../example/php');
         $this->router = new IncludeRouter($this->sourcePath);
     }
 
-
+    /**
+     * @throws Directory\DoesNotExistException
+     * @throws Directory\IsNotReadableException
+     */
     public function testGetSetSourcePath()
     {
         $router = $this->router;
@@ -61,7 +65,9 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-
+    /**
+     * @return void
+     */
     public function testGetSetFileExtension()
     {
         $router = $this->router;
@@ -90,7 +96,9 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-
+    /**
+     * @return void
+     */
     public function testHandleRoute()
     {
         $router = $this->router;
@@ -134,5 +142,4 @@ class LoadTest extends \PHPUnit_Framework_TestCase
         $router->handleRoute('hello/world');
         $this->assertEquals('hello world!', ob_get_clean());
     }
-
 }

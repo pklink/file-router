@@ -3,7 +3,6 @@
 namespace FileRouter\Router;
 
 use FileRouter\Exception\Route\DoesNotExistException;
-use FileRouter\Exception\RouteException;
 
 class OutputTxtTest extends \PHPUnit_Framework_TestCase
 {
@@ -18,20 +17,27 @@ class OutputTxtTest extends \PHPUnit_Framework_TestCase
      */
     protected $sourcePath;
 
+    /**
+     * @return void
+     */
     public function setUp()
     {
-        $this->sourcePath = new \SplFileInfo(__DIR__. '/../../example/txt');
+        $this->sourcePath = new \SplFileInfo(__DIR__ . '/../../example/txt');
         $this->router = new OutputTxtRouter($this->sourcePath);
     }
 
-
+    /**
+     * @return void
+     */
     public function testGetFileExtension()
     {
         // test default extension
         $this->assertEquals('txt', $this->router->getFileExtension());
     }
 
-
+    /**
+     * @return void
+     */
     public function testHandleRoute()
     {
         $router = $this->router;
@@ -67,5 +73,4 @@ class OutputTxtTest extends \PHPUnit_Framework_TestCase
         $router->handleRoute('hello/world');
         $this->assertEquals('hello world!', ob_get_clean());
     }
-
 }
