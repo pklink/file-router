@@ -7,36 +7,9 @@
 
 A library for mapping files in a directory to routes like `hello/world`
 
-
-## Installation
-
-Install FileRouter with Composer
-
-Create or update your composer.json
-
-```json
-{
-    "require": {
-        "pklink/file-router": "0.*"
-    }
-}
-```
-
-And run Composer
-
-```bash
-php composer.phar install
-```
-
-Finally include Composers autoloader
-
-```bash
-include __DIR__ . '/vendor/autoload.php';
-```
-
 ## Usage
 
-### Router/Load for including PHP files
+### Router for including PHP files
 
 We have the following file structure:
 	
@@ -56,7 +29,7 @@ And here is our `example.php`
 $sourcePath = new SplFileInfo(__DIR__ . '/includes');
 
 // create router
-$router = new \FileRouter\Router\Load($sourcePath);
+$router = new \FileRouter\Router\IncludeRouter($sourcePath);
 ```
 
 Now you can load/include files in the `includes`-directory
@@ -72,10 +45,8 @@ Or like this:
 $router->handleRoute($_GET['r']);
 ```
 
-*You can find a complete example in example.php*
 
-
-### Router/OutputTxt for printing txt-files
+### Router for printing txt-files
 
 We have the following file structure:
 	
@@ -95,7 +66,7 @@ And here is our `example.php`
 $sourcePath = new SplFileInfo(__DIR__ . '/docs');
 
 // create router
-$router = new \FileRouter\Router\OutputTxt($sourcePath);
+$router = new \FileRouter\Router\OutputTxtRouter($sourcePath);
 ```
 
 Now you can print/output files in the `docs`-directory
@@ -105,8 +76,6 @@ $router->handleRoute('hello'); // print includes/hello.txt
 $router->handleRoute('hello/world'); // print includes/hello/world.txt
 ```
 
-*You can find a complete example in example.php*
-
 
 ## Advanced Usage
 
@@ -115,7 +84,7 @@ $router->handleRoute('hello/world'); // print includes/hello/world.txt
 It is no problem to write and add your own router. Implement the interface `\FileRouter\Router` or use the abtract implementation of `\FileRouter\Router\AbstractImpl`, so you only need to implement `Router::handleRoute()`
 
 ```php
-class CustomRouter extends \FileRouter\Router\AbstractImpl
+class CustomRouter extends \FileRouter\Router\AbstractRouter
 {
 
 	public function handleRoute($router)
@@ -137,23 +106,6 @@ You can use PHPUnit from the vendor-folder.
 php composer.phar install --dev
 php vendor/bin/phpunit tests/
 ```
-
-or with code-coverage-report
-
-```bash
-php composer.phar install --dev
-php vendor/bin/phpunit --coverage-html output tests/
-```
-
-## Create API Documentation
-
-You find the documentation in `<package-root>/docs`. If you like to create your own documentation you can use [ApiGen].
-
-```bash
-php composer.phar global require apigen/apigen:dev-master
-php ~/.composer/vendor/bin/apigen.php -s src/ -d docs/
-```
-
 
 ## License
 
