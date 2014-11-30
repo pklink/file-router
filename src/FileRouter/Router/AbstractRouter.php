@@ -11,7 +11,7 @@ use FileRouter\Router;
  * @author Pierre Klink <dev@klinks.info>
  * @license MIT See LICENSE file for more information
  */
-abstract class AbstractImpl implements Router
+abstract class AbstractRouter implements Router
 {
 
     /**

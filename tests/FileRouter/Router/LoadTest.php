@@ -12,7 +12,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var Load
+     * @var IncludeRouter
      */
     protected $router;
 
@@ -24,7 +24,7 @@ class LoadTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->sourcePath = new \SplFileInfo(__DIR__. '/../../example/php');
-        $this->router = new Load($this->sourcePath);
+        $this->router = new IncludeRouter($this->sourcePath);
     }
 
 

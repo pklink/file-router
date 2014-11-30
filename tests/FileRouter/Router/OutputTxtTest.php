@@ -9,7 +9,7 @@ class OutputTxtTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var Load
+     * @var IncludeRouter
      */
     protected $router;
 
@@ -21,7 +21,7 @@ class OutputTxtTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->sourcePath = new \SplFileInfo(__DIR__. '/../../example/txt');
-        $this->router = new OutputTxt($this->sourcePath);
+        $this->router = new OutputTxtRouter($this->sourcePath);
     }
 
 
