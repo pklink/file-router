@@ -4,6 +4,7 @@
 # FileRouter
 
 [![Build Status](https://travis-ci.org/pklink/file-router.png?branch=master)](https://travis-ci.org/pklink/file-router)
+[![Dependency Status](https://www.versioneye.com/user/projects/5281e31a632baca88e000211/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5281e31a632baca88e000211)
 
 A library for mapping files in a directory to routes like `hello/world`
 
