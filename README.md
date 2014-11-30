@@ -131,7 +131,7 @@ class CustomRouter extends \FileRouter\Router\AbstractImpl
 
 ## Run Tests
 
-You can use [PHPUnit] from the vendor-folder.
+You can use PHPUnit from the vendor-folder.
 
 ```bash
 php composer.phar install --dev
