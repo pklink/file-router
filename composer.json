@@ -1,7 +1,6 @@
 {
   "name": "pklink/file-router",
   "description": "Library for mapping files in a directory to routes",
-  "version": "0.3.0",
   "keywords": [
     "routing",
     "file",
